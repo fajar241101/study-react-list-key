@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props);
+
+    const fruit1 = 'mango';
+    const fruit2 = 'apple';
+    const fruit3 = 'banana';
+    const fruit4 = 'melon';
+    const fruits = ['mango', 'apple', 'banana', 'melon'];
+    
+  }
+  render() {
+    const fruits = ['mango', 'apple', 'banana', 'melon'];
+    console.log(fruits.includes('grape'));
+    const fruit = fruits.map( (f, index)=> <li key={index}>{f}</li> )
+    const numbers = [1,2,3,4,5,6,7,9]
+    const number = numbers.filter( (n)=> n <= 2 )
+    const num = number.map( (n)=> <li key={n.toString()}>{n}</li>)
+    const total = numbers.reduce( (value, acc ) => value + acc );
+    // console.log(total);
+    return (
+      <div>
+        <h1>Hallo</h1>
+        <ul>
+          { fruit }
+          { num }
+        </ul>
+      </div>
+    )
+  }
 }
 
 export default App;
